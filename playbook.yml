@@ -6,11 +6,11 @@
   tasks:
     - name: copy docker-compose yaml file to remote machine
       copy:
-        src: ./playbook.yml
+        src: ./docker-compose.yaml
         dest: ~/
 
     - name: run docker-compose up 
       docker_compose:
         project_src: ~/
         state: present
-        
+
