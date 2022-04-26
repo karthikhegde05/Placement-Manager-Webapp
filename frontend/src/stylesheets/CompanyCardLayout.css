@@ -1,0 +1,307 @@
+
+    
+   .com-sidebarcomp-body{
+    background: rgb(5, 68, 104);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+   }
+
+   .com-sidebarcomp-inactive-body{
+    background: rgb(5, 68, 104);
+	position: fixed;
+	top: 0;
+	left: -150px;
+	width: 150px;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+   }
+
+   .com-sidebarcomp-ul{
+    padding: 0px;
+    margin:0px;
+    }
+
+   .com-sidebarcomp-li{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #10558d;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
+   }
+
+
+   .com-sidebarcomp-li:hover{
+    color: #0c7db1;
+	  background:white;
+    border-right: 2px solid rgb(5, 68, 104);
+   }
+   
+   .com-sidebarcomp-li:hover:before{
+    display: block;
+   }
+
+   .com-cardcomp-body {
+    /*   background-color: #222; */
+        font-family: sans-serif;
+        font-size: .8rem;
+        line-height: 150%;
+        width: calc(100% - 150px);
+	    margin-left: 150px;
+	    transition: all 0.5s ease;
+    }
+
+    .com-cardcomp-full-body{
+        font-family:sans-serif;
+        font-size:.8rem;
+        line-height:150%;
+        width: 100%;
+        margin-left:0px;
+        transition: all 0.5s ease;
+    }
+ 
+    .com-detailsbar{
+        /* background:#a0e2f6; */
+        display:flex;
+        margin:10px 0px;
+        padding: 5px, 25px;
+        align-items: center;
+        justify-content: center;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        flex-wrap: wrap;
+        
+    }
+
+    .com-detailsbar-p{
+        font-size: 1.4rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        padding: 1.5em;
+        border-radius: 1em;
+    }
+
+    .com-navbarcomp-body{
+        background: rgb(7, 105, 185);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        margin: 0;
+    }  
+
+    
+    .com-navbarcomp-menu{
+        font-size: 1rem;
+        background:rgb(233, 229, 31);
+        margin:0px 5px;
+        padding:0px;
+        border-top:0px;
+        border-bottom: 0px;
+        border-left:0px;
+        border-right:0px;
+        height:100%;
+        width:6rem;
+
+    }
+
+    .com-navbarcomp-title{
+        font-size: 1.2rem;
+        margin: 0px 20px;
+        padding: 0px 40px;
+        color:rgba(253, 255, 255, 0.9)
+    }
+
+    .com-navbarcomp-menu:hover{
+        background: rgb(211, 207, 207);
+    }
+
+
+    /* Setting up the responsive Grid container - auto-fit + minmax() */
+    .com-cardcomp-albums {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2em;
+      margin: 2em;
+    }
+    
+    
+    /* Grid inside grid - album cards also use grid for layout setup */
+    .com-cardcomp-album {
+      background: rgba(72, 61, 139, 0.9);
+      box-shadow: 0 5px 10px rgba(0,0,0,.2);
+      padding: 1.5em;
+      border-radius: 1em;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5em;
+      align-items: center;
+      color: rgb(255, 255, 255);
+      font-weight: 100;
+    }
+    
+    
+    /* Important step - image will spill over the container if width is not declared explicitly */
+    .com-cardcomp-album__artwork {
+      width: 100%;
+      border-radius: 0.4em;
+    }
+    
+    
+    /* Some additional text styling */
+    .com-cardcomp-h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25em;
+      
+    }
+
+    .com-cardcomp-h3 {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    
+    .com-cardcomp-album__artist {
+      opacity: 0.7;
+      text-transform: uppercase;
+      margin-bottom: .5em;
+      font-style: oblique;
+      letter-spacing: .7px;
+    }
+
+
+    .com-cardcomp-album:hover{
+        cursor:pointer;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
+    }
+    
+    .com-cardcomp-draw-border {
+        box-shadow: inset 0 0 0 4px #58cdd1;
+        color: #58afd1;
+        -webkit-transition: color 0.25s 0.0833333333s;
+        transition: color 0.25s 0.0833333333s;
+        position: relative;
+      }
+
+      .com-cardcomp-draw-view-border {
+        box-shadow: inset 0 0 0 4px #58cdd1;
+        color: #58afd1;
+        -webkit-transition: color 0.25s 0.0833333333s;
+        transition: color 0.25s 0.0833333333s;
+        position: relative;
+      }
+      
+      .com-cardcomp-draw-border::before,
+      .com-cardcomp-draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0rem;
+        height: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .com-cardcomp-draw-view-border::before,
+      .com-cardcomp-draw-view-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0rem;
+        height: 0;
+        bottom: 0;
+        right: 0;
+      }
+      
+      .com-cardcomp-draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+      }
+
+      .com-cardcomp-draw-view-border::before{
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+      }
+      
+      .com-cardcomp-draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+      }
+
+      .com-cardcomp-draw-view-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+      }
+
+      
+      .com-cardcomp-draw-border:hover {
+        color: #ffe593;
+      }
+      
+      .com-cardcomp-draw-view-border:hover {
+        color: #ffe593;
+      }
+
+      .com-cardcomp-draw-border:hover::before,
+      .com-cardcomp-draw-border:hover::after {
+        border-color: #eb196e;
+        -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+        transition: border-color 0s, width 0.25s, height 0.25s;
+        width: 100%;
+        height: 100%;
+      }
+
+      .com-cardcomp-draw-view-border:hover::before,
+      .com-cardcomp-draw-view-border:hover::after {
+        border-color: #60eb1f;
+        -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+        transition: border-color 0s, width 0.25s, height 0.25s;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .com-cardcomp-draw-border:hover::before {
+        -webkit-transition-delay: 0s, 0s, 0.25s;
+        transition-delay: 0s, 0s, 0.25s;
+      }
+
+      .com-cardcomp-draw-view-border:hover::before {
+        -webkit-transition-delay: 0s, 0s, 0.25s;
+        transition-delay: 0s, 0s, 0.25s;
+      }
+      
+      .com-cardcomp-draw-border:hover::after {
+        -webkit-transition-delay: 0s, 0.25s, 0s;
+        transition-delay: 0s, 0.25s, 0s;
+      }
+
+      .com-cardcomp-draw-view-border:hover::after {
+        -webkit-transition-delay: 0s, 0.25s, 0s;
+        transition-delay: 0s, 0.25s, 0s;
+      }
+      
+      .com-cardcomp-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        line-height: 1.5;
+        font: 700 1rem 'Roboto Slab', sans-serif;
+        padding: 0.75em 2em;
+        letter-spacing: 0.05rem;
+        margin: 1em;
+        width: 13rem;
+      }
+      
+      .com-cardcomp-btn:focus {
+        outline: 2px dotted #55d7dc;
+      }
+      
