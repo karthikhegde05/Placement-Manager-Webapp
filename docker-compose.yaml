@@ -15,6 +15,7 @@ services:
       - MYSQL_DATABASE=placement_manager
     networks:
       - db
+    restart: on-failure
 
   placement-manager-backend:
     image: karthikhegde2022/placement-manager-backend
@@ -31,6 +32,7 @@ services:
     networks:
       - db
       - frontend
+    restart: on-failure
 
   placement-manager-frontend:
     image: karthikhegde2022/placement-manager-frontend
@@ -41,6 +43,7 @@ services:
       - placement-manager-backend
     networks:
       - frontend
+    restart: on-failure
 
 volumes:
   db-data:
