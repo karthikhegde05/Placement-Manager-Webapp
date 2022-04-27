@@ -3,6 +3,8 @@ FROM node:14-alpine AS build
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
+ARG APP_URL
+ENV APP_URL $APP_URL
 COPY ./ /app/
 RUN npm run build
 
