@@ -39,7 +39,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @RestController
-@CrossOrigin(origins={"http://127.0.0.1:3000/", "http://localhost:3000/", "http://localhost:4200/", "http://localhost:80/"}, maxAge=30)
+@CrossOrigin(origins={"http://127.0.0.1:3000/", "http://localhost:3000/", "http://localhost:4200/", "http://localhost:80/", "http://34.127.110.3:4200/"}, maxAge=30)
 public class Controller {
 
     private final AdminService adminService;
