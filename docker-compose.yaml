@@ -38,7 +38,7 @@ services:
     image: karthikhegde2022/placement-manager-frontend
     container_name: pm-frontend-container
     args:
-      APP_URL: "http://34.127.110.3:8082/"
+      - API_URL: http://34.127.110.3:8082/
     ports:
       - 4200:80
     depends_on:
