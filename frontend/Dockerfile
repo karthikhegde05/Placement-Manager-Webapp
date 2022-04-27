@@ -4,8 +4,6 @@ WORKDIR /app
 COPY package*.json /app/
 RUN npm install
 COPY ./ /app/
-ARG APP_URL
-ENV APP_URL $APP_URL
 RUN npm run build
 
 ### Stage 2 - Run on nginx ###
