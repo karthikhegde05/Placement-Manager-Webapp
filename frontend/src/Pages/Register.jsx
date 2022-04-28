@@ -18,7 +18,7 @@ import '../stylesheets/Register.css';
     const sndRegister = async(e) =>{
         e.preventDefault();
 
-        const result = await axios.post("register", {
+        const result = await axios.post("/register", {
             "userId": userId,
             "email": email,
             "password": password,

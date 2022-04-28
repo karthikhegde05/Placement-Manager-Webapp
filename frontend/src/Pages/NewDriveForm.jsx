@@ -20,7 +20,7 @@ import '../stylesheets/NewDrive.css';
         let recId =  [];
         if (rec1 != "0")  recId.push(rec1);
         if (rec2!="0")  recId.push(rec2);
-        const result = await axios.post("create-new-drive/", {
+        const result = await axios.post("/create-new-drive/", {
             "companyName": companyName,
             "companyStream": companyStream,
             "deadlineDate": deadlineDate,
