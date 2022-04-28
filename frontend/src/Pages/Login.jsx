@@ -13,7 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
 
-    const authLogin = (e) => {
+    const authLogin = async (e) => {
         e.preventDefault();
         // console.log("logging");
         // console.log(axios.defaults.baseURL);
