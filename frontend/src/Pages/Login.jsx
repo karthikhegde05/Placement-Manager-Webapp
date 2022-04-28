@@ -12,10 +12,11 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
 
-    const authLogin = async (e) => {
+    const authLogin = (e) => {
         e.preventDefault();
-        await console.log(axios.baseURL);
-        await console.log(axios.getUri());
+        console.log("logging");
+        console.log(axios.baseURL);
+        console.log(axios.getUri());
         // const result = await axios.post("/login",
         // {
         //     "userId": userId,
