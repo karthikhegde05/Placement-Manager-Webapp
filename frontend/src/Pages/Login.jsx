@@ -14,7 +14,8 @@ const Login = () => {
 
     const authLogin = async (e) => {
         e.preventDefault();
-        console.log(axios.baseURL);
+        await console.log(axios.baseURL);
+        await console.log(axios.getUri());
         const result = await axios.post("/login",
         {
             "userId": userId,
