@@ -15,15 +15,15 @@ const Login = () => {
 
     const authLogin = (e) => {
         e.preventDefault();
-        console.log("logging");
-        console.log(axios.defaults.baseURL);
-        console.log(axios.getUri());
-        // const result = await Axios.post("/login",
-        // {
-        //     "userId": userId,
-        //     "password": password
-        // }).then((response)=>{return authLoginSuccess(response);}).
-        // catch(function(error){console.log(error);})
+        // console.log("logging");
+        // console.log(axios.defaults.baseURL);
+        // console.log(axios.getUri());
+        const result = await Axios.post("/login",
+        {
+            "userId": userId,
+            "password": password
+        }).then((response)=>{return authLoginSuccess(response);}).
+        catch(function(error){console.log(error);})
     };
 
     const authLoginSuccess = (response) => {
@@ -42,7 +42,7 @@ const Login = () => {
 
     return (
         <div className="login-body">
-            <form >
+            <form onSubmit={authLogin}>
                 <div className="login-form">
                     <div className="login-title">Welcome!!</div>
                     <div className="login-subtitle">Login</div>
@@ -57,7 +57,6 @@ const Login = () => {
                         <label htmlFor="Password" className="login-placeholder">Password</label>
                     </div>
                     <button type="text" className="login-submit">login</button>
-                    <button type="button" onClick={authLogin}>check</button>
                 </div>
             </form> 
          </div>

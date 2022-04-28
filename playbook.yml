@@ -12,6 +12,7 @@
     - name: run docker-compose up 
       docker_compose:
         project_src: ~/
+        pull: yes
         state: present
         recreate: always
 
