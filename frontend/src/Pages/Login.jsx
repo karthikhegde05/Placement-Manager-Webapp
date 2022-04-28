@@ -16,12 +16,12 @@ const Login = () => {
         e.preventDefault();
         await console.log(axios.baseURL);
         await console.log(axios.getUri());
-        const result = await axios.post("/login",
-        {
-            "userId": userId,
-            "password": password
-        }).then((response)=>{return authLoginSuccess(response);}).
-        catch(function(error){console.log(error);})
+        // const result = await axios.post("/login",
+        // {
+        //     "userId": userId,
+        //     "password": password
+        // }).then((response)=>{return authLoginSuccess(response);}).
+        // catch(function(error){console.log(error);})
     };
 
     const authLoginSuccess = (response) => {
