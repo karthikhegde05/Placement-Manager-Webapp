@@ -42,7 +42,7 @@ const Login = () => {
 
     return (
         <div className="login-body">
-            <form onSubmit={authLogin}>
+            <form >
                 <div className="login-form">
                     <div className="login-title">Welcome!!</div>
                     <div className="login-subtitle">Login</div>
@@ -57,6 +57,7 @@ const Login = () => {
                         <label htmlFor="Password" className="login-placeholder">Password</label>
                     </div>
                     <button type="text" className="login-submit">login</button>
+                    <button type="button" onClick={authLogin}>check</button>
                 </div>
             </form> 
          </div>
