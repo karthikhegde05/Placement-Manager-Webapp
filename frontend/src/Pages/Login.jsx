@@ -18,7 +18,7 @@ const Login = () => {
         // console.log("logging");
         // console.log(axios.defaults.baseURL);
         // console.log(axios.getUri());
-        const result = await Axios.post("/login",
+        const result = await axios.post("/login",
         {
             "userId": userId,
             "password": password
