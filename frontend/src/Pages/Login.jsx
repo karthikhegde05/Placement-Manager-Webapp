@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from '../Api/axios';
+import Axios from 'axios';
 import {AuthContext} from '../Context/AuthContext';
 import '../stylesheets/Login.css';
 
@@ -15,9 +16,9 @@ const Login = () => {
     const authLogin = (e) => {
         e.preventDefault();
         console.log("logging");
-        console.log(axios.baseURL);
+        console.log(axios.defaults.baseURL);
         console.log(axios.getUri());
-        // const result = await axios.post("/login",
+        // const result = await Axios.post("/login",
         // {
         //     "userId": userId,
         //     "password": password
