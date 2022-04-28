@@ -16,6 +16,7 @@ services:
     networks:
       - db
     restart: on-failure
+    recreate: always
 
   placement-manager-backend:
     image: karthikhegde2022/placement-manager-backend
@@ -33,6 +34,7 @@ services:
       - db
       - frontend
     restart: on-failure
+    recreate: always
 
   placement-manager-frontend:
     image: karthikhegde2022/placement-manager-frontend
@@ -44,6 +46,7 @@ services:
     networks:
       - frontend
     restart: on-failure
+    recreate: always
 
 volumes:
   db-data:
