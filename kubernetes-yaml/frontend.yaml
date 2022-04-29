@@ -29,7 +29,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: fontend
+    app: frontend
   ports:
     - protocol: TCP
       port: 4200

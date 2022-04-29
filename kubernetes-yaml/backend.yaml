@@ -21,7 +21,9 @@ spec:
         ports:
         - containerPort: 8082
         env:
-        - name: MYSQL_USERNAME
+        - name: DB_SERVER
+          value: db-service
+        - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
                 name: db-secret
@@ -36,11 +38,6 @@ spec:
             configMapKeyRef:
               name: db-config
               key: mysql-db
-        - name: DB_SERVER
-          valueFrom:
-            configMapKeyRef:
-              name: db-config
-              key: db-server
 
 ---
 apiVersion: v1
