@@ -56,7 +56,6 @@ const Login = () => {
                         <label htmlFor="Password" className="login-placeholder">Password</label>
                     </div>
                     <button type="text" className="login-submit">login</button>
-                    <button type="button">clear</button>
                 </div>
             </form> 
          </div>
