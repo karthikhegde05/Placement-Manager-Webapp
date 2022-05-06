@@ -505,7 +505,7 @@ public class Controller {
     
     @GetMapping(value="/ping")
     public @ResponseBody String ping(){
-
+        System.out.println("pong");
         return "pong";
     }
 
