@@ -23,7 +23,8 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     void updateStudentByCompanyId(@Param("studentId") Long studentId, @Param("companyId") Long companyId);
 
     @Modifying
-    @Query(value="UPDATE student st SET st.first_name=:firstName, st.last_name=:lastName, st.software_resume=:softwareResume WHERE st.student_id=:studentId", nativeQuery = true)
+    @Query(value="UPDATE student st SET st.first_name=:firstName, st.last_name=:lastName, st.software_resume=:softwareResume, st.datascience_resume=:dataScResume, st.ece_resume=:eceResume WHERE st.student_id=:studentId", 
+    nativeQuery = true)
     void updateStudentProfile(@Param("studentId") Long studentId, @Param("firstName") String firstName, @Param("lastName") String lastName,
-        @Param("softwareResume") byte[] softwareResume);
+        @Param("softwareResume") byte[] softwareResume, @Param("dataScResume") byte[] dataScResume, @Param("eceResume") byte[] eceResume);
 }

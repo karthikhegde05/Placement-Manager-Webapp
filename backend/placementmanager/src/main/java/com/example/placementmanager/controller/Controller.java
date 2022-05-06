@@ -39,10 +39,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins={"http://127.0.0.1:3000/", "http://localhost:3000/", "http://localhost:4200/", "http://localhost:80/", "http://34.127.110.3:4200/"}, maxAge=30)
 public class Controller {
+
+    private static final Logger log = LoggerFactory.getLogger(Controller.class);
 
     private final AdminService adminService;
     private final RegistrationDetailsService regService;
@@ -64,6 +69,9 @@ public class Controller {
     // registration (post method) 
     @PostMapping(value="/register")
     public @ResponseBody sndRegAckDto postRegister(@RequestBody rcvRegDto regDto){
+
+        log.info("[Register] - [POST]");
+
         String userId = regDto.getUserId();
         String email = regDto.getEmail();
         String password = regDto.getPassword();
@@ -128,6 +136,9 @@ public class Controller {
     // login (post method)
     @PostMapping(value="/login")
     public @ResponseBody sndProfileDto checkLogin(@RequestBody rcvLgDto lgDto){
+
+        log.info("[Login] - [POST]");
+
         String userId = lgDto.getUserId();
         String passwrd = lgDto.getPassword();
 
@@ -178,6 +189,9 @@ public class Controller {
     // get ongoing drive list (get method)
     @GetMapping(value="/drive-list/{objId}")
     public @ResponseBody sndDriveLstDto fetchDrives(@PathVariable String objId){
+
+        log.info("[Fetch Company Drives] - [GET]");
+
         Long adminId = Long.parseLong(objId);
 
         List<CompanyDrive> companies = compService.getAllComp();
@@ -197,6 +211,9 @@ public class Controller {
     // create new drive (post method)
     @PostMapping(value="/create-new-drive")
     public @ResponseBody sndCrtDriveAckDto createDrive(@RequestBody rcvCrtDriveDto rcvObj){
+
+        log.info("[Create New Drive] - [POST]");
+
         String name = rcvObj.getCompanyName();
         String stream = rcvObj.getCompanyStream();
 
@@ -239,6 +256,9 @@ public class Controller {
     // delete drive (post method)
     @PostMapping(value="/delete-drive")
     public @ResponseBody sndAckDto deleteDrive(@RequestBody rcvDelDriveDto rcvObj){
+
+        log.info("[Delete Drive] - [POST]");
+
         String name = rcvObj.getCompanyName();
         String stream = rcvObj.getCompanyStream();
 
@@ -260,6 +280,9 @@ public class Controller {
     // get details of ongoing drive (get method)
     @GetMapping(value="/company-home/{compId}")
     public @ResponseBody sndCompDetailsDto fetchCompHome(@PathVariable String compId){
+
+        log.info("[Fetch Company Home] - [GET]");
+
         Long companyId = Long.parseLong(compId);
 
         sndCompDetailsDto ackObj = new sndCompDetailsDto();
@@ -279,6 +302,9 @@ public class Controller {
     // edit detail info (post method)
     @PostMapping(value="/company-details-update")
     public @ResponseBody sndAckDto updCompDetails(@RequestBody rcvCompDetailsDto rcvObj){
+
+        log.info("[Update Company Details] - [POST]");
+
         Long companyId = Long.parseLong(rcvObj.getCompanyId());
 
         compService.updateCompDetails(companyId, rcvObj.getMeetingLink(), rcvObj.getTestLink(),rcvObj.getInfo(), rcvObj.getJobDescription(), rcvObj.getJobPay());
@@ -292,6 +318,9 @@ public class Controller {
     // reject students / delete from the selected students (post method)
     @PostMapping(value="/company-reject-student/")
     public @ResponseBody sndAckDto rejectCompStudent(@RequestBody rcvStudentCompDto rcvObj){
+
+        log.info("[Reject Student] - [POST]");
+
         Long companyId = Long.parseLong(rcvObj.getCompanyId());
         Long studentId = Long.parseLong(rcvObj.getStudentId());
 
@@ -312,6 +341,9 @@ public class Controller {
     // list of company drives (get method)
     @GetMapping(value="/student-company-drives/{objId}")
     public @ResponseBody sndStDriveLstDto  fetchStCompDrives(@PathVariable String objId){
+
+        log.info("[Fetch Student Company Drives] - [GET]");
+
         Long studentId = Long.parseLong(objId);
 
         sndStDriveLstDto ackObj = new sndStDriveLstDto();
@@ -350,6 +382,9 @@ public class Controller {
     // apply for a company drive (post method)
     @PostMapping(value="/student-apply-drive")
     public @ResponseBody sndAckDto applyCompany(@RequestBody rcvStudentCompDto rcvObj){
+
+        log.info("[Apply for Drive] - [POST]");
+
         Long companyId = Long.parseLong(rcvObj.getCompanyId());
         Long studentId = Long.parseLong(rcvObj.getStudentId());
 
@@ -376,6 +411,9 @@ public class Controller {
     // list of student details along with email and password (get method)
     @GetMapping(value="/student-profile-details/{studId}")
     public @ResponseBody sndStudProfDto fetchStudProfile(@PathVariable String studId){
+
+        log.info("[Fetch Student Profile Details] - [GET]");
+
         Long studentId = Long.parseLong(studId);
 
         sndStudProfDto ackObj = new sndStudProfDto();
@@ -404,14 +442,21 @@ public class Controller {
     // editing of email , password, uploading resumes (post method)
     @PostMapping(value="/student-profile-update/{objId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public @ResponseBody sndAckDto updateStudProf(@ModelAttribute rcvStudProfDto obj, @PathVariable String objId){
+
+        log.info("[Update Student Profile] - [POST]");
+
         Long studentId = Long.parseLong(objId);
 
         sndAckDto ackObj = new sndAckDto();
         ackObj.setAck(false);
 
-        byte[] fileContent;
+        byte[] softFileContent;
+        byte[] dataFileContent;
+        byte[] eceFileContent;
         try{
-            fileContent = obj.getSoftwareResume().getBytes();
+            softFileContent = obj.getSoftwareResume().getBytes();
+            dataFileContent = obj.getDatascienceResume().getBytes();
+            eceFileContent = obj.getEceResume().getBytes();
         }
         catch(IOException e){
             ackObj.setAck(false);
@@ -419,7 +464,8 @@ public class Controller {
         }
 
         try{
-            studService.updateStudentProfile(studentId, obj.getFirstName(), obj.getLastName(), fileContent);
+            studService.updateStudentProfile(studentId, obj.getFirstName(), obj.getLastName(), 
+            softFileContent, dataFileContent, eceFileContent);
         }
         catch(IOException e){
             ackObj.setAck(false);
@@ -437,6 +483,9 @@ public class Controller {
     // list of company drives that he/she is incharge of (get method)
     @GetMapping(value="/recruiter-drives/{objId}")
     public @ResponseBody sndDriveLstDto fetchRecDrives(@PathVariable String objId){
+
+        log.info("[Fetch Recruiter Drives] - [GET]");
+
         Long recruiterId = Long.parseLong(objId);
         
         sndDriveLstDto ackObj = new sndDriveLstDto();

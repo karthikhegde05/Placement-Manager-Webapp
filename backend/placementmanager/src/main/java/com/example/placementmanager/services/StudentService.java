@@ -40,8 +40,9 @@ public class StudentService {
     }
 
     @Transactional
-    public void updateStudentProfile(Long studentId, String firstName, String lastName, byte[] softwareResume) throws IOException{
-        studRepo.updateStudentProfile(studentId, firstName, lastName, softwareResume);
+    public void updateStudentProfile(Long studentId, String firstName, String lastName, byte[] softwareResume, 
+    byte[] dataScienceResume, byte[] eceResume) throws IOException{
+        studRepo.updateStudentProfile(studentId, firstName, lastName, softwareResume, dataScienceResume, eceResume);
     }
 
     public void deleteStudentById(Long studentId){

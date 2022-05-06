@@ -5,6 +5,10 @@ import axios from 'axios';
 //     baseURL: "http://34.127.110.3:8082/"
 // });
 
+// export default axios.create({
+//     baseURL: "/api/"
+// });
+
 export default axios.create({
-    baseURL: "/api/"
-});
+    baseURL: "http://127.0.0.1:8082/api/"
+})
