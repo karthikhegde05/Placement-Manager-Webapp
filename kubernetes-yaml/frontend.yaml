@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pm-frontend-container
-        image: karthikhegde2022/placement-manager-frontend:latest
+        image: jishnuvk/spe-main-project:front_end_latest
         imagePullPolicy: Always
         ports:
         - name: http

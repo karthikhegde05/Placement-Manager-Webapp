@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import axios from '../Api/axios';
+// import axios from '../Api/axios';
+import axios from 'axios';
 import {AuthContext} from '../Context/AuthContext';
 import '../stylesheets/Login.css';
 
@@ -16,7 +17,9 @@ const Login = () => {
         e.preventDefault();
         // console.log("logging");
         // console.log(axios.getUri());
-        const result = await axios.post("/login",
+       
+        // const result = await axios.post("/login",
+        const result = await axios.post("http://34.131.144.116:8082/api/login",
         {
             "userId": userId,
             "password": password

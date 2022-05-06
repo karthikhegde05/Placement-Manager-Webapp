@@ -503,6 +503,11 @@ public class Controller {
         return ackObj;
     }
     
+    @GetMapping(value="/ping")
+    public @ResponseBody String ping(){
+
+        return "pong";
+    }
 
 
     // --- recruiter profile page ---

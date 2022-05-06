@@ -6,7 +6,7 @@ import axios from 'axios';
 // });
 
 export default axios.create({
-    baseURL: "/api/"
+    baseURL: "http://34.131.144.116:8082/api/"
 });
 
 // export default axios.create({
