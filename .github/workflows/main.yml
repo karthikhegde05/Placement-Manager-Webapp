@@ -29,10 +29,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
           
-#       - name: Build Maven
-#         run: |
-#           cd backend/placementmanager/
-#           mvn clean install
-#       - name: Docker build
-#         run: |
+      - name: Build Maven
+        run: |
+          cd backend/placementmanager/
+          mvn clean install
+      # - name: Docker build
+      #   run: |
           
