@@ -15,7 +15,7 @@ on:
 env:
 
   BACKEND_IMAGE: jishnuvk/spe-main-project:back_end
-  FRONT_END_IMAGE: jishnuvk/spe-main-project:front_end
+  FRONTEND_IMAGE: jishnuvk/spe-main-project:front_end
 
 jobs:
 
@@ -57,4 +57,12 @@ jobs:
           docker build -t $BUILD_NUMBER .
         env:
           BUILD_NUMBER: ${{ env.BACKEND_IMAGE }}_${{ steps.build-number.outputs.build-number}}
+
+      - name: Docker build frontend
+
+        run: |
+          cd frontend/
+          docker build -t $BUILD_NUMBER .
+        env:
+          BUILD_NUMBER: ${{ env.FRONTEND_IMAGE }}_${{ steps.build-number.outputs.build-number}}
           
