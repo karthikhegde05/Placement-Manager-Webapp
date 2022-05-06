@@ -54,7 +54,7 @@ jobs:
       - name: Docker build backend
         run: |
           cd backend/
-          docker build -t $BACKEND_IMAGE+$BUILD_NUMBER
+          docker build -t $BACKEND_IMAGE$BUILD_NUMBER
         env:
           BUILD_NUMBER: ${{ steps.build-number.outputs.build-number}}
           
