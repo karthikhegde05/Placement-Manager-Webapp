@@ -44,7 +44,7 @@ jobs:
           echo $BUILD_NUMBER
         
         env:
-          BUILD_NUMBER: ${{ $steps.build-number.outputs.build-number}}
+          BUILD_NUMBER: ${{ steps.build-number.outputs.build-number}}
 
       - name: Build Maven
         run: |
@@ -56,5 +56,5 @@ jobs:
           cd backend/
           docker build -t $BACKEND_IMAGE+$BUILD_NUMBER
         env:
-          BUILD_NUMBER: ${{ $steps.build-number.outputs.build-number}}
+          BUILD_NUMBER: ${{ steps.build-number.outputs.build-number}}
           
