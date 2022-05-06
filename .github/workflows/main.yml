@@ -12,6 +12,10 @@ on:
 
   workflow_dispatch:
 
+env:
+
+  BACKEND_IMAGE: jishnuvk/spe-main-project:back_end
+  FRONT_END_IMAGE: jishnuvk/spe-main-project:front_end
 
 jobs:
 
@@ -28,11 +32,29 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-          
+
+      - name: Build Number
+        uses: travisj/build-number-action@v1.0.2
+        id: build-number
+        with:
+          key: placementmanager
+
+      - name: print build number
+        run: |
+          echo $BUILD_NUMBER
+        
+        env:
+          BUILD_NUMBER: ${{ $steps.build-number.outputs.build-number}}
+
       - name: Build Maven
         run: |
           cd backend/placementmanager/
           mvn clean install
-      # - name: Docker build
-      #   run: |
+     
+      - name: Docker build backend
+        run: |
+          cd backend/
+          docker build -t $BACKEND_IMAGE+$BUILD_NUMBER
+        env:
+          BUILD_NUMBER: ${{ $steps.build-number.outputs.build-number}}
           
