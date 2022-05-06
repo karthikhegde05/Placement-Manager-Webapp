@@ -1,13 +1,13 @@
-package com.example.placementmanager;
+// package com.example.placementmanager;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class PlacementmanagerApplicationTests {
+// @SpringBootTest
+// class PlacementmanagerApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
