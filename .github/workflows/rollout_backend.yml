@@ -1,0 +1,18 @@
+name: rollout_backend
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: rollout_backend
+        run: |
+          gcloud container clusters get-credentials placement --zone asia-south1-a --project magnetic-flare-349411
+          kubectl rollout restart deployment backend-deployment

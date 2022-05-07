@@ -1,0 +1,32 @@
+gcloud container clusters get-credentials placement --zone asia-south1-a --project magnetic-flare-349411 <- replace
+
+kubectl apply -f kubernetes-yaml/db-config.yaml
+kubectl apply -f kubernetes-yaml/db-secret.yaml 
+kubectl apply -f kubernetes-yaml/mysql-pv.yaml
+kubectl apply -f kubernetes-yaml/db.yaml
+kubectl apply -f kubernetes-yaml/backend.yaml 
+kubectl apply -f kubernetes-yaml/external.yaml
+
+helm install filebeat ./ELK/filebeat/
+helm install logstash ./ELK/logstash/
+helm install elasticsearch ./ELK/elasticsearch/
+helm install kibana ./ELK/kibana/
+
+docker build -t jishnuvk/spe-main-project:front_end_latest ./frontend/
+docker push jishnuvk/spe-main-project:front_end_latest
+kubectl apply -f kubernetes-yaml/frontend.yaml 
+
+
+kubectl create -f https://download.elastic.co/downloads/eck/2.2.0/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.2.0/operator.yaml
+
+cd ELK/filebeat/
+helm install filebeat .
+
+cd ../logstash/
+helm install logstash .
+
+cd ../elasticsearch/
+helm install elasticsearch .
+
+cd ../kibana/

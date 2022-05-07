@@ -14,6 +14,14 @@ spec:
       labels:
         app: backend
     spec:
+      volumes:
+        - name: nginx-logs
+        - name: filebeat-config
+          configMap:
+            name: filebeat-configmap
+            items:
+              - key: filebeat.yml
+                path: filebeat.yml
       containers:
       - name: pm-backend-container
         image: jishnuvk/spe-main-project:back_end_latest
@@ -21,6 +29,9 @@ spec:
         ports:
         - name: http
           containerPort: 8082
+        volumeMounts:
+            - name: nginx-logs
+              mountPath: /app/logs/
         env:
         - name: DB_SERVER
           value: db-service
@@ -39,14 +50,15 @@ spec:
             configMapKeyRef:
               name: db-config
               key: mysql-db
-        # livelenessProbe:
-        #   httpGet:
-        #     path: /health/live
-        #     port: 8082
-        # readinessProbe:
-        #   httpGet:
-        #     path: /health/ready
-        #     port: 8082
+
+      - name: filebeat-sidecar
+        image: docker.elastic.co/beats/filebeat:7.5.0
+        volumeMounts:
+          - name: nginx-logs
+            mountPath: /usr/share/filebeat/var/log/app/
+          - name: filebeat-config
+            mountPath: /usr/share/filebeat/filebeat.yml
+            subPath: filebeat.yml  
             
 
 
@@ -62,3 +74,18 @@ spec:
     - protocol: TCP
       port: 8082
       targetPort: 8082
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-configmap
+data:
+  filebeat.yml: |
+    filebeat.inputs:
+    - type: log
+      paths:
+        - var/log/app/*.log
+
+    output.logstash:
+      hosts: ["logstash-logstash:5044"]
