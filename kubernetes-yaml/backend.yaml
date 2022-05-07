@@ -39,6 +39,16 @@ spec:
             configMapKeyRef:
               name: db-config
               key: mysql-db
+        # livelenessProbe:
+        #   httpGet:
+        #     path: /health/live
+        #     port: 8082
+        # readinessProbe:
+        #   httpGet:
+        #     path: /health/ready
+        #     port: 8082
+            
+
 
 ---
 apiVersion: v1

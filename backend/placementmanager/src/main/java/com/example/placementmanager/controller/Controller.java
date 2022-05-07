@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins={"http://127.0.0.1:3000/", "http://localhost:3000/", "http://localhost:4200/", "http://localhost:80/", "http://34.127.110.3:4200/"}, maxAge=30)
+@CrossOrigin(origins={"http://127.0.0.1:3000/", "http://localhost:3000/", "http://localhost:4200/", "http://localhost:80/", "http://34.127.110.3:4200/", "*"}, maxAge=30)
 public class Controller {
 
     private static final Logger log = LoggerFactory.getLogger(Controller.class);
