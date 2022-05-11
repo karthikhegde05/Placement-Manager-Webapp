@@ -35,3 +35,13 @@
 05-05-2022 20:50:57.689 [http-nio-8082-exec-8] INFO  c.e.p.controller.Controller.createDrive - [Create New Drive] - [POST]
 05-05-2022 20:50:58.033 [http-nio-8082-exec-9] INFO  c.e.p.controller.Controller.fetchDrives - [Fetch Company Drives] - [GET]
 05-05-2022 20:50:58.039 [http-nio-8082-exec-10] INFO  c.e.p.controller.Controller.fetchDrives - [Fetch Company Drives] - [GET]
+06-05-2022 21:25:37.622 [main] INFO  c.e.p.PlacementmanagerApplicationTests.logStarting - Starting PlacementmanagerApplicationTests using Java 11.0.11 on karthikhegde05-Vostro-3478 with PID 21524 (started by karthikhegde05 in /home/karthikhegde05/Videos/SPE_majorProject/backend/placementmanager)
+06-05-2022 21:25:38.356 [main] INFO  c.e.p.PlacementmanagerApplicationTests.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+06-05-2022 21:27:05.519 [main] INFO  c.e.p.PlacementmanagerApplicationTests.logStarted - Started PlacementmanagerApplicationTests in 93.536 seconds (JVM running for 106.964)
+06-05-2022 21:27:09.496 [main] INFO  c.e.placementmanager.ControllerTest.logStarting - Starting ControllerTest using Java 11.0.11 on karthikhegde05-Vostro-3478 with PID 21524 (started by karthikhegde05 in /home/karthikhegde05/Videos/SPE_majorProject/backend/placementmanager)
+06-05-2022 21:27:09.524 [main] INFO  c.e.placementmanager.ControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+06-05-2022 21:27:10.773 [main] INFO  c.e.placementmanager.ControllerTest.logStarted - Started ControllerTest in 1.426 seconds (JVM running for 112.219)
+06-05-2022 21:27:10.966 [main] INFO  c.e.p.controller.Controller.fetchDrives - [Fetch Company Drives] - [GET]
+06-05-2022 21:27:12.011 [main] INFO  c.e.p.controller.Controller.fetchCompHome - [Fetch Company Home] - [GET]
+06-05-2022 21:30:36.569 [main] INFO  c.e.p.PlacementmanagerApplication.logStarting - Starting PlacementmanagerApplication v0.0.1-SNAPSHOT using Java 11.0.11 on karthikhegde05-Vostro-3478 with PID 22629 (/home/karthikhegde05/Videos/SPE_majorProject/backend/placementmanager/target/placementmanager-0.0.1-SNAPSHOT.jar started by karthikhegde05 in /home/karthikhegde05/Videos/SPE_majorProject/backend/placementmanager)
+06-05-2022 21:30:36.575 [main] INFO  c.e.p.PlacementmanagerApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"

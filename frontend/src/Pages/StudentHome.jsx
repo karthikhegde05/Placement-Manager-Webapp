@@ -82,49 +82,6 @@ import '../stylesheets/StudentCardLayout.css';
 
 
     return (
-        // <div>
-        //     <div>
-        //         <button onClick={redirectToStudentProfile}>
-        //             Profile page
-        //         </button>
-        //     </div>
-        //     <div>
-        //         <p>here show the list of companies where the student has applied</p>
-        //         <p>Green buttons show the ones that are still active where the sudent is 
-        //             not rejected yet
-        //         </p>
-        //         <p>Blue buttons show the ones that are still open for applying or the deadline is not passed</p>
-        //     </div>
-
-        //     <hr></hr>
-            
-        //     <div>
-        //     {
-        //         companyDrives.map((company, index)=>{
-        //             if(nullCompany==true){
-        //                 return <div key={index}></div>;
-        //             }
-
-        //             return (
-        //                 <div key={index} style={{backgroundColor: (company.applied==true)?"green":"blue"}}>
-        //                     <p>{company.company.name}</p>
-        //                     <p>{company.company.stream}</p>
-        //                     <p>Deadline to apply: {company.company.deadlineDate}</p>
-        //                     <button onClick={(e)=>{navigate('/company/home', {state:company.company.companyId});}}>more details</button>
-        //                     {(company.applied==false) && <button onClick={(e)=>{return applyCompany(company.company);}}>apply</button>}
-        //                 </div>
-        //                 );
-        //             })
-        //     }
-        //     </div>
-
-        //     <hr></hr>
-        //     <div>
-        //         <button onClick={logOut}>
-        //             Log out
-        //         </button>
-        //     </div>
-        // </div>
 
 
         <div classname="stu-sidebarcomp-layout">
