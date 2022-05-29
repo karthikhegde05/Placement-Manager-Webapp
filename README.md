@@ -4,5 +4,7 @@ A platform that connects recruiters and students, facilitating smooth recruitmen
 
 For more information on entire workflow check out the [report](https://github.com/karthikhegde05/Placement-Manager-Webapp/blob/main/SPE%20Major%20Project%20Report.pdf)
 
+Technologies used :point_right: Java Spring Boot, React, MySQL, Jenkins, Docker, Kubernetes, Elastic search, Logstash, Kibana
+
 ### Collaborators:
 Karthik Hegde, Jishnu V Kumar
